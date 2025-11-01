@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 271 91% 65%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 271 91% 95%;
+    --accent-foreground: 271 91% 25%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 271 91% 65%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 271 91% 65%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 271 91% 25%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 271 91% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Musical Animations */
+.musical-gradient {
+  background: linear-gradient(135deg, #a855f7 0%, #f59e0b 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.piano-key {
+  @apply transition-all duration-200 hover:shadow-lg;
+}
+
+.piano-key:active {
+  @apply transform translate-y-1;
+}
+
+.music-note {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Custom scrollbar for musical theme */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-musical-purple-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-musical-purple-500;
+}
+
+/* Loading animation */
+.music-loader {
+  display: flex;
+  gap: 8px;
+}
+
+.music-loader span {
+  width: 4px;
+  height: 40px;
+  background: linear-gradient(to top, #a855f7, #f59e0b);
+  border-radius: 4px;
+  animation: music-wave 1.2s ease-in-out infinite;
+}
+
+.music-loader span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.music-loader span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.music-loader span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.music-loader span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes music-wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
